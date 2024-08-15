@@ -133,19 +133,68 @@ let books = [
     { title: "The Catcher in the Rye", status: "borrowed" },
     { title: "Moby-Dick", status: "available" }
   ];
+
 //TODO Filter Available Books: Write a function to list all available books.
-let availBooks = []
 function displayAvailablebook() {
-    for (i = 0; i > books.length; i++) {
+    let availBooks = [];
+    for (let i = 0; i < books.length; i++) {
         if (books[i].status === "available") {
-            availBooks.push(books[i].title)
+            availBooks.push(books[i]);
         }
-    }
+    } return availBooks;
 };
 
-console.log(availBooks)
-
+let availableBooksList = displayAvailablebook()
+for (let i = 0; i < availableBooksList.length; i++) {
+    console.log(`This book is available: ${availableBooksList[i].title}`)
+}
 
 //TODO Filter Borrowed Books: Write a function to list all borrowed books.
- 
- 
+function displayBorrowedBooks() {
+    let borrowedBooks = []
+    for (i = 0; i < books.length; i++) {
+        if (books[i].status === "borrowed") {
+            borrowedBooks.push(books[i])
+        }
+    } return borrowedBooks;
+}
+
+let borrowedBooksList = displayBorrowedBooks()
+for (i = 0; i < borrowedBooksList.length; i++) {
+    console.log(`This book is borrowed at the moment: ${borrowedBooksList[i].title}`)
+}
+
+//! Recipe Organizer
+//? Create a program to manage recipes, where some recipes are predefined, and the user can add or update recipes.
+
+//TODO  Each recipe should have properties like title, ingredients (an array of strings), and instructions.
+let recipes = [
+    { title: "Pancakes", ingredients: ["Flour", "Eggs", "Milk"], instructions: "Mix and cook on a griddle." },
+    { title: "Salad", ingredients: ["Lettuce", "Tomatoes", "Cucumbers"], instructions: "Chop and toss with dressing." }
+  ];
+//TODO Add a New Recipe: Allow the user to input a new recipe's title, ingredients, and instructions, then add it to the list.
+//TODO Update Recipe Instructions: Enable the user to update the instructions of an existing recipe.
+//* Display All Recipes: Write a function to display all recipes with their details.
+
+
+//! Car Dealership Inventory
+//? Create a program to manage a car dealership inventory, where some cars are predefined, and the user can add or update car details.
+let cars = [
+    { make: "Toyota", model: "Camry", year: 2020, price: 24000 },
+    { make: "Honda", model: "Civic", year: 2019, price: 22000 }
+  ];
+//TODO Each car should have properties like make, model, year, and price.
+//TODO Add a New Car: Allow the user to input a new car's make, model, year, and price, then add it to the inventory.
+//TODO Update Car Price: Enable the user to update the price of an existing car.
+//* Display All Cars: Write a function to display all cars in the inventory.
+
+
+//! Pet Names with Details
+//TODO Create a program that manages a list of pet names, where each pet has a name, type (e.g., dog, cat), and age.
+
+//TODOEach object should contain name, type, and age.
+//TODO  Add a New Pet: Allow the user to input a new pet's name, type, and age, then add it to the list.
+//* Display All Pet Names: Write a function to display all pets with their details.
+
+
+

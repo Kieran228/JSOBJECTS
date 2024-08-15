@@ -60,4 +60,67 @@ console.log(`${currentObjectLength} is the number of properties`)
 //* This will return object object. Specify what you need from this object!
 console.log(`${listOfMusic[1]} will return object object in a template literal`)
 
+//? Classes
+
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+        this.speed = 0;
+    }
+
+    accerlerate(mph) {
+        this.speed += mph;
+        console.log(`this car is going ${this.speed}`)
+    }
+
+    brake(mph) {
+        this.speed -= mph;
+        console.log(`This car is going ${this.speed} mph`);
+    }
+}
+
+const shitbox = new Car("Toyota", "Camry");
+
+console.log(`this car is going ${shitbox.speed} mph`)
+shitbox.accerlerate(20)
+
+//? New Class
+class Employee {
+    constructor(name, title, catchPhrase) {
+        this.name = name,
+        this.title = title,
+        this.catchPhrase = catchPhrase
+    }
+    introduce() {
+        console.log(`Hi I am ${this.name}, I am a ${this.title}, ${this.catchPhrase}`)
+    }
+}
+
+const spongebob = new Employee("spongebob", "frycook", "I'm Ready");
+const squirdward = new Employee("squirdward", "cashier", "I hate everyone");
+
+spongebob.introduce();
+squirdward.introduce();
+
+class Animal {
+    speak() {
+        console.log("Some animal noise")
+    }
+    nap() {
+        console.log("zzzzzzzz")
+    }
+}
+
+class Dog extends animal {
+    speak() {
+        console.log("Bark Bark")
+    }    
+}
+
+class Cat extends animal {
+    speak() {
+        console.log("Meow")
+    }    
+}
 
