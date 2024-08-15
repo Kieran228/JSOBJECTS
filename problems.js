@@ -16,9 +16,9 @@ let contacts = [
         email: "fwarner@gmail.com"
     },
     {
-        name: "Fred Warner",
+        name: "Mickey Mouse",
         phoneNumber: 2894565677,
-        email: "fwarner@gmail.com"
+        email: "disneyrules@gmail.com"
     }
 ];
 //TODO Create Functions: Create functions to add a contact, view all contacts, and search for a contact by name.
@@ -33,7 +33,7 @@ function addContact(newName, newPhoneNumber, newEmail) {
 }
 
 //* Output Results: Use console.log to display the contacts and search results.
-addContact("Mike", "2282232222", "kdfaj@gmail.com");
+addContact("Mike Wizaozki", "2282232222", "bigEye@gmail.com");
 console.log(contacts);
 
  
@@ -61,16 +61,16 @@ function calcGradeAverage() {
     return classAverage;
 }
 let classGradeAverage = calcGradeAverage()
-console.log(classGradeAverage.toFixed(0))
+console.log(`The average grades of the students is: ${classGradeAverage.toFixed(0)}`)
 
 //TODO Identify Students Below Average: Write a function to find and list students with grades below the class average.
-debugger
+
 function belowAverageFinder() {
-    //* If student's grade is less than or equal to (<=) the class average (classGradeAverage) display the name of student
+    //* If a student's grade is less than (<) the class average (classGradeAverage) display the name of student
     for (i = 0; i < students.length; i++) {
-        if (students.grade <= classGradeAverage) {
-            console.log(students[i].name)
-        }
+        if (students[i].grade < classGradeAverage) {
+            console.log(`${students[i].name} has a below average grade.`);
+        } 
     }
 }
 
@@ -82,9 +82,44 @@ console.log(belowAverageStudents)
  
 //TODO Define a Movie Object: Each movie should be represented as an object with properties like title, genre, and rating.
 //TODO Store Movies in an Array: Use an array to store multiple movie objects.
+
+let Movie = [
+    {
+        title: "Man of Steel",
+        genre: ["Superhero", "Action", "Adventure"],
+        rating: "7/10"
+    },
+    {
+        title: "I am legend",
+        genre: ["Horror", "Action", "Science Fiction"],
+        rating: "7/10"
+    }
+];
+
 //TODO Create Functions: Create functions to add a movie, rate a movie, and view your entire collection.
+
+function addMovie(movieTitle, movieGenre, movieRating) {
+    let addMovie = {
+        title: movieTitle,
+        genre: movieGenre,
+        rating: movieRating
+    };
+    Movie.push(addMovie);
+}
+
+addMovie("Spirited Away", "Anime", "10/10");
+
+function rateMovie(targetMovie, personalRating) {
+    for (i = 0; i < Movie.length; i++) {
+        if (targetMovie == Movie[i].title) {
+            Movie[i].rating = personalRating;
+        }
+    } return personalRating;
+}
+
 //* Output Results: Use console.log to display the movie collection and ratings.
- 
+rateMovie("Man of Steel", "10/10");
+console.log(Movie)
  
 //! Library Book Tracker
 //? Create a program to manage a small library, where you can check which books are available or borrowed, and filter the books by their status.
@@ -99,6 +134,18 @@ let books = [
     { title: "Moby-Dick", status: "available" }
   ];
 //TODO Filter Available Books: Write a function to list all available books.
+let availBooks = []
+function displayAvailablebook() {
+    for (i = 0; i > books.length; i++) {
+        if (books[i].status === "available") {
+            availBooks.push(books[i].title)
+        }
+    }
+};
+
+console.log(availBooks)
+
+
 //TODO Filter Borrowed Books: Write a function to list all borrowed books.
  
  
