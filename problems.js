@@ -173,8 +173,19 @@ let recipes = [
     { title: "Salad", ingredients: ["Lettuce", "Tomatoes", "Cucumbers"], instructions: "Chop and toss with dressing." }
   ];
 //TODO Add a New Recipe: Allow the user to input a new recipe's title, ingredients, and instructions, then add it to the list.
+function addNewRecipe(addTitle, addIngredients, addInstructions) {
+    let newRecipe = [
+        {title: addTitle, ingredients: [addIngredients], instructions: addInstructions}
+    ]
+    recipes.push(newRecipe)
+}
+
+addNewRecipe("Cookies and Milk", ["Milk", "Cookies", "Glass"], "Dip Cookies in Milk and Enjoy!")
+console.log(recipes)
+
 //TODO Update Recipe Instructions: Enable the user to update the instructions of an existing recipe.
 //* Display All Recipes: Write a function to display all recipes with their details.
+
 
 
 //! Car Dealership Inventory
