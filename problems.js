@@ -172,21 +172,30 @@ let recipes = [
     { title: "Pancakes", ingredients: ["Flour", "Eggs", "Milk"], instructions: "Mix and cook on a griddle." },
     { title: "Salad", ingredients: ["Lettuce", "Tomatoes", "Cucumbers"], instructions: "Chop and toss with dressing." }
   ];
+
 //TODO Add a New Recipe: Allow the user to input a new recipe's title, ingredients, and instructions, then add it to the list.
 function addNewRecipe(addTitle, addIngredients, addInstructions) {
-    let newRecipe = [
-        {title: addTitle, ingredients: [addIngredients], instructions: addInstructions}
-    ]
-    recipes.push(newRecipe)
-}
-
-addNewRecipe("Cookies and Milk", ["Milk", "Cookies", "Glass"], "Dip Cookies in Milk and Enjoy!")
-console.log(recipes)
+    let newRecipe = { title: addTitle, ingredients: addIngredients, instructions: addInstructions }
+    recipes.push(newRecipe);
+};
 
 //TODO Update Recipe Instructions: Enable the user to update the instructions of an existing recipe.
+function updateInstructions(targetRecipe, newInstructions) {
+    for (i = 0; i < recipes.length; i++) {
+        if (recipes[i].title === targetRecipe) {
+            recipes[i].instructions = newInstructions;
+        };
+    };
+};
+
 //* Display All Recipes: Write a function to display all recipes with their details.
+function displayRecipes() {
+    console.log(recipes);
+};
 
-
+addNewRecipe("Cookies and Milk", ["Milk", "Cookies", "Glass"], "Dip Cookies in Milk and Enjoy!")
+updateInstructions("Cookies and Milk", "Eat Cookie then swallow milk")
+displayRecipes()
 
 //! Car Dealership Inventory
 //? Create a program to manage a car dealership inventory, where some cars are predefined, and the user can add or update car details.
@@ -196,16 +205,66 @@ let cars = [
   ];
 //TODO Each car should have properties like make, model, year, and price.
 //TODO Add a New Car: Allow the user to input a new car's make, model, year, and price, then add it to the inventory.
+function addNewCar(addedMake, addedModel, addedYear, addedPrice) {
+    let newcar = { make: addedMake, model: addedModel, year: addedYear, price: addedPrice};
+    cars.push(newcar);
+};
+
 //TODO Update Car Price: Enable the user to update the price of an existing car.
+function updateCarPrice(targetCarMake, targetCarModel, targetCarYear, updatedPrice) {
+    for (i = 0; i < cars.length; i++) {
+        if (cars[i].make === targetCarMake && cars[i].model === targetCarModel &&  cars[i].year === targetCarYear) {
+            cars[i].price = updatedPrice;
+        };
+    };
+};
+
 //* Display All Cars: Write a function to display all cars in the inventory.
+function displayCars() {
+    console.log(cars)
+}
+
+addNewCar("Toyota", "Corolla", "2024", "25000")
+updateCarPrice("Toyota", "Corolla", "2024", "30000")
+displayCars()
 
 
 //! Pet Names with Details
 //TODO Create a program that manages a list of pet names, where each pet has a name, type (e.g., dog, cat), and age.
 
 //TODOEach object should contain name, type, and age.
+let Pets = [
+    {
+        name: "",
+        type: "",
+        age: ""
+    },
+]
+
+
 //TODO  Add a New Pet: Allow the user to input a new pet's name, type, and age, then add it to the list.
+function addNewPet(petName, petType, petAge) {
+    if (Pets.length === 1) {
+        Pets[0].name = petName
+        Pets[0].type = petType
+        Pets[0].age = petAge
+    } 
+    if (Pets[0].name != petName) {
+        let newPet = {
+            name: petName,
+            type: petType,
+            age: petAge
+        }
+        Pets.push(newPet)
+    }
+    
+}
+
 //* Display All Pet Names: Write a function to display all pets with their details.
+function displayPets() {
+    console.log(Pets)
+}
 
-
-
+addNewPet("Sampson", "Dog", "8");
+addNewPet("Louie", "Dog", "12");
+displayPets();

@@ -112,13 +112,13 @@ class Animal {
     }
 }
 
-class Dog extends animal {
+class Dog extends Animal {
     speak() {
         console.log("Bark Bark")
     }    
 }
 
-class Cat extends animal {
+class Cat extends Animal {
     speak() {
         console.log("Meow")
     }    
